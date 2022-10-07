@@ -1,0 +1,35 @@
+void matrixSum() {
+    int m, n;
+    printf("Numero de filas =>");
+    scanf("%d", &m);
+    printf("Numero de columnas =>");
+    scanf("%d", &n);
+    int** A = (int**)malloc(m * sizeof(int*));
+    int** B = (int**)malloc(m * sizeof(int*));
+    printf("\nIngrese matriz A:\n");
+    for (int i = 0; i < m; ++i) {
+        *(A + i) = (int*)malloc(n * sizeof(int));
+        for (int j = 0; j < n; ++j) {
+           printf("[%d %d] =>", i + 1, j + 1);
+           scanf("%d", *(A + i) + j);
+        }
+    }
+    printf("\nIngrese matriz B:\n");
+    for (int i = 0; i < m; ++i) {
+        *(B + i) = (int*)malloc(n * sizeof(int));
+        for (int j = 0; j < n; ++j) {
+            printf("[%d %d] =>", i + 1, j + 1);
+            scanf("%d", *(B + i) + j);
+        }
+    }
+    printf("\nA + B:");
+    for (int i = 0; i < m; ++i) {
+        printf("\n");
+        for (int j = 0; j < n; ++j)
+            printf("%d ", *(*(A + i) + j) + *(*(B + i) + j));
+        free(*(A + i));
+        free(*(B + i));
+    }
+    free(A);
+    free(B);
+}
